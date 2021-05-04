@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linea</title>
+</head>
+<body>
+
+    <div>
+        <canvas id="myChart"></canvas>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // <block:setup:1>
+const labels = [
+  '2015',
+  '2016',
+  '2017',
+  '2018',
+  '2019',
+  '2020',
+];
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'Moda',
+    backgroundColor: 'rgb(237, 119, 92,.5)',
+    borderColor: 'rgb(237, 119, 92,1)',
+    data: [1315, 1386, 2262, 2122, 2410, 4520],
+  },
+{
+    label: 'Electronicos',
+    backgroundColor: 'rgb(60, 133, 125,.5)',
+    borderColor: 'rgb(60, 133, 125,1)',
+    data: [1381, 1457, 2480, 2222, 2430, 5890],
+},
+{
+    label: 'Comida',
+    backgroundColor: 'rgb(150, 177, 172,.5)',
+    borderColor: 'rgb(150, 177, 172,1)',
+    data: [548, 578, 994, 888, 951, 1930],
+},
+{
+    label: 'Muebles y electrodomesticos',
+    backgroundColor: 'rgb(162, 201, 194,.5)',
+    borderColor: 'rgb(162, 201, 194,1)',
+    data: [669, 706, 1140, 1087, 1230, 3020],
+},
+{
+    label: 'Juguetes DIY y Hobbies',
+    backgroundColor: 'rgb(132, 195, 187,.5)',
+    borderColor: 'rgb(132, 195, 187,1)',
+    data: [1049, 1106, 1655, 1742, 2020, 3450],
+},
+{
+    label: 'Viajes',
+    backgroundColor: 'rgb(255, 215, 203,.5)',
+    borderColor: 'rgb(255, 215, 203,1)',
+    data: [1180, 1245, 3099, 1414, 1584, 463],
+},
+{
+    label: 'Musica digital',
+    backgroundColor: 'rgb(237, 119, 92,.5)',
+    borderColor: 'rgb(237, 119, 92,1)',
+    data: [95, 100, 128, 153, 211, 344],
+},
+{
+    label: 'Video Juegos',
+    backgroundColor: 'rgb(60, 133, 125,.5)',
+    borderColor: 'rgb(60, 133, 125,1)',
+    data: [584, 616, 847, 1070, 1100, 1970],
+}]
+};
+
+
+
+// </block:setup>
+
+// <block:config:0>
+    const config = {
+  type: 'line',
+  data: data,
+  options: {
+    animations: {
+      radius: {
+        duration: 400,
+        easing: 'linear',
+        loop: (context) => context.active
+      }
+    },
+    hoverRadius: 10,
+    interaction: {
+      mode: 'nearest',
+      intersect: false,
+      axis: 'x'
+    },
+    plugins: {
+      title: {
+        display: true,
+        text: 'Comportamiento del E-commerce 2015 - 2020',
+        font: {
+            family: 'Playfair Display SC',
+            size: 25,
+            weight: 'normal',
+            lineHeight: 2,
+          },
+      }
+    },
+    responsive: true,
+    scales: {
+      x: {
+        display: true,
+        title: {
+          display: true,
+          text: 'Año',
+          color: '#707070',
+          font: {
+            family: 'Oxygen',
+            size: 15,
+            weight: 'normal',
+            lineHeight: 2,
+          },
+          padding: {top: 10, left: 0, right: 0, bottom: 0}
+        }
+      },
+      y: {
+        display: true,
+        title: {
+          display: true,
+          text: 'Millones USD',
+          color: '#707070',
+          font: {
+            family: 'Oxygen',
+            size: 15,
+            style: 'normal',
+            lineHeight: 2
+          },
+          padding: {top: 30, left: 0, right: 0, bottom: 0}
+        }
+      }
+    }
+  },
+};
+// </block:config>
+
+module.exports = {
+  actions: [],
+  config: config,
+};
+</script>
+
+<script>
+    // === include 'setup' then 'config' above ===
+
+    var myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+  </script>
+
+<!-- D3 -->
+<script src="https://d3js.org/d3.v6.min.js"></script>
+
+<!-- JS -->
+<script src="/js/main.js"></script>
+
+<!-- JQuery first, then Popper.js, then Bootstrap JS -->
+<script src="bootstrap-4.4.1-dist/js/jquery-3.4.1.slim.min.js"></script>
+<script src="bootstrap-4.4.1-dist/js/popper.min.js"></script>
+<script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+
+</body>
+</html>
